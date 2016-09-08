@@ -46,7 +46,7 @@ if [ ! -f $CACHE_FILE ]; then
   echo "-----> Caching ImageMagick installation"
   cd $VENDOR_DIR
   REL_INSTALL_DIR="imagemagick"
-  tar czf $REL_INSTALL_DIR.tar.xz $REL_INSTALL_DIR
+  tar cfJ $REL_INSTALL_DIR.tar.xz $REL_INSTALL_DIR
   mv $REL_INSTALL_DIR.tar.xz $CACHE_FILE
 
 else
