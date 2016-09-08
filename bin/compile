@@ -16,12 +16,6 @@ mkdir -p $INSTALL_DIR
 IMAGE_MAGICK_VERSION="${IMAGE_MAGICK_VERSION:-6.9.5-9}"
 CACHE_FILE="$CACHE_DIR/imagemagick-$IMAGE_MAGICK_VERSION.tar.xz"
 
-echo "cachefile"
-echo $CACHE_FILE
-echo ! -f $CACHE_FILE
-ls $CACHE_DIR
-if [ -f /app/tmp/cache/imagemagick-6.9.5-9.tar.xz ]; then echo "ok"; fi
-
 if [ ! -f $CACHE_FILE ]; then
   # install imagemagick
   IMAGE_MAGICK_FILE="ImageMagick-$IMAGE_MAGICK_VERSION.tar.xz"
@@ -59,7 +53,7 @@ if [ ! -f $CACHE_FILE ]; then
 else
   # cache exists, extract it
   echo "-----> Extracting ImageMagick $CACHE_FILE => $VENDOR_DIR"
-  tar xzf $CACHE_FILE -C $VENDOR_DIR
+  tar xJf $CACHE_FILE -C $VENDOR_DIR
 fi
 
 echo "-----> Writing policy file"
